@@ -1,0 +1,101 @@
+<div class="form-container">
+  <div class="container py-5">
+    
+    <!-- Form Header -->
+    <div class="form-header">
+      <button class="btn-back" (click)="onCancel()">
+        <span class="arrow-back">←</span> Back
+      </button>
+      <h1 class="form-title">
+        {{ isEditMode ? '✨ Edit Your Idea' : '🌷 Share Your Idea' }}
+      </h1>
+      <p class="form-subtitle">
+        {{ isEditMode ? 'Update your suggestion' : 'Help make our campus better!' }}
+      </p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="form-card">
+      <form [formGroup]="suggestionForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Title Field -->
+        <div class="form-group">
+          <label class="form-label">
+            💡 Title <span class="required">*</span>
+          </label>
+          <input 
+            type="text" 
+            class="form-input"
+            [class.error]="isFieldInvalid('title')"
+            formControlName="title"
+            placeholder="Give your idea a catchy title..."
+          />
+          <div class="error-message" *ngIf="isFieldInvalid('title')">
+            {{ getErrorMessage('title') }}
+          </div>
+        </div>
+
+        <!-- Description Field -->
+        <div class="form-group">
+          <label class="form-label">
+            📝 Description <span class="required">*</span>
+          </label>
+          <textarea 
+            class="form-textarea"
+            [class.error]="isFieldInvalid('description')"
+            formControlName="description"
+            rows="6"
+            placeholder="Describe your idea in detail. What problem does it solve? How will it help?"
+          ></textarea>
+          <div class="error-message" *ngIf="isFieldInvalid('description')">
+            {{ getErrorMessage('description') }}
+          </div>
+        </div>
+
+        <!-- Category Field -->
+        <div class="form-group">
+          <label class="form-label">
+            📁 Category <span class="required">*</span>
+          </label>
+          <div class="category-grid">
+            <label 
+              *ngFor="let cat of categories" 
+              class="category-option"
+              [class.selected]="suggestionForm.get('category')?.value === cat"
+            >
+              <input 
+                type="radio" 
+                formControlName="category" 
+                [value]="cat"
+                hidden
+              />
+              <div class="category-content">
+                <span class="category-icon">{{ getCategoryIcon(cat) }}</span>
+                <span class="category-name">{{ cat }}</span>
+              </div>
+            </label>
+          </div>
+          <div class="error-message" *ngIf="isFieldInvalid('category')">
+            {{ getErrorMessage('category') }}
+          </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="button" class="btn-cancel" (click)="onCancel()">
+            Cancel
+          </button>
+          <button 
+            type="submit" 
+            class="btn-submit"
+            [disabled]="suggestionForm.invalid"
+          >
+            {{ isEditMode ? '💾 Update Idea' : '✨ Submit Idea' }}
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

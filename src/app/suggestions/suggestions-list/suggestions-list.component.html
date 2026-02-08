@@ -1,0 +1,120 @@
+<div class="blossom-container">
+  <div class="container py-5">
+    
+    <!-- Header Section -->
+    <div class="header-section">
+      <div>
+        <h1 class="page-title">Campus Ideas 🌷</h1>
+        <p class="page-subtitle">Share your brilliant suggestions to make our campus better ✨</p>
+      </div>
+      <button class="btn-add-new" (click)="addNew()">
+        <span>✨ New Idea</span>
+      </button>
+    </div>
+
+    <!-- FILTERS SECTION - NEW! -->
+    <div class="filters-container">
+      <div class="filters-header">
+        <h3 class="filters-title">🔍 Filter Ideas</h3>
+        <button class="btn-clear-filters" (click)="clearFilters()" *ngIf="selectedCategory || selectedStatus">
+          Clear All ✕
+        </button>
+      </div>
+      
+      <div class="filters-grid">
+        <!-- Category Filter -->
+        <div class="filter-group">
+          <label class="filter-label">📁 Category</label>
+          <select 
+            class="filter-select" 
+            [(ngModel)]="selectedCategory" 
+            (change)="applyFilters()"
+          >
+            <option value="">All Categories</option>
+            <option *ngFor="let cat of categories" [value]="cat">
+              {{getCategoryIcon(cat)}} {{cat}}
+            </option>
+          </select>
+        </div>
+
+        <!-- Status Filter -->
+        <div class="filter-group">
+          <label class="filter-label">📊 Status</label>
+          <select 
+            class="filter-select" 
+            [(ngModel)]="selectedStatus" 
+            (change)="applyFilters()"
+          >
+            <option value="">All Statuses</option>
+            <option *ngFor="let status of statuses" [value]="status">
+              {{status}}
+            </option>
+          </select>
+        </div>
+
+        <!-- Results Count -->
+        <div class="filter-results">
+          <span class="results-icon">💡</span>
+          <span class="results-text">
+            <strong>{{totalSuggestions}}</strong> 
+            {{totalSuggestions === 1 ? 'idea' : 'ideas'}} found
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-row">
+      <!-- ... your existing stats cards ... -->
+    </div>
+
+    <!-- Suggestions Grid -->
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-xl-4" *ngFor="let sugg of filteredSuggestions; let i = index">
+                <div class="idea-card" [attr.data-index]="i">
+          
+          <!-- Card Header with badges -->
+          <div class="card-header-custom">
+            <span class="category-pill" [ngClass]="'cat-' + sugg.category">
+              {{getCategoryIcon(sugg.category)}} {{sugg.category}}
+            </span>
+            <span class="status-dot" 
+                  [ngClass]="'status-' + sugg.statut.toLowerCase().replace(' ', '-')">
+              {{sugg.statut}}
+            </span>
+          </div>
+
+          <!-- Card Content -->
+          <div class="card-content">
+            <h3 class="idea-title">{{sugg.title}}</h3>
+            <p class="idea-description">{{sugg.description}}</p>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="card-footer-custom">
+            <div class="date-info">
+              <span class="date-icon">🗓️</span>
+              <span class="date-text">{{sugg.date | date: 'd MMM yyyy'}}</span>
+            </div>
+            <button class="btn-view-details" (click)="viewDetails(sugg.id)">
+              View Details
+              <span class="arrow">→</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- No Results Message -->
+    <div class="no-results" *ngIf="filteredSuggestions.length === 0">
+      <div class="no-results-icon">🔍</div>
+      <h3>No ideas found</h3>
+      <p>Try adjusting your filters or add a new idea!</p>
+      <button class="btn-add-new" (click)="addNew()">
+        ✨ Add New Idea
+      </button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,251 @@
+/* 🌸 Form Container */
+.form-container {
+  background: linear-gradient(135deg, #ffeef8 0%, #fff5f7 50%, #f0e7ff 100%);
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+/* Form Header */
+.form-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.btn-back {
+  background: white;
+  border: 2px solid #f9a8d4;
+  color: #ec4899;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.btn-back:hover {
+  background: #fce7f3;
+  transform: translateX(-4px);
+}
+
+.arrow-back {
+  transition: transform 0.3s ease;
+}
+
+.btn-back:hover .arrow-back {
+  transform: translateX(-4px);
+}
+
+.form-title {
+  font-size: 42px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.form-subtitle {
+  color: #9333ea;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Form Card */
+.form-card {
+  background: white;
+  border-radius: 32px;
+  padding: 48px;
+  box-shadow: 0 8px 32px rgba(236, 72, 153, 0.12);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 32px;
+}
+
+.form-label {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.required {
+  color: #ec4899;
+}
+
+/* Text Input */
+.form-input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #f3e8ff;
+  border-radius: 16px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #ec4899;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.1);
+}
+
+.form-input.error {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+/* Textarea */
+.form-textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #f3e8ff;
+  border-radius: 16px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #ec4899;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.1);
+}
+
+.form-textarea.error {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+/* Error Messages */
+.error-message {
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Category Grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.category-option {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-content {
+  background: #fafafa;
+  border: 2px solid #f3e8ff;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.category-option:hover .category-content {
+  border-color: #f9a8d4;
+  transform: translateY(-4px);
+}
+
+.category-option.selected .category-content {
+  background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 100%);
+  border-color: #ec4899;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.2);
+}
+
+.category-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.category-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  text-transform: capitalize;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 40px;
+}
+
+.btn-cancel {
+  background: white;
+  border: 2px solid #f9a8d4;
+  color: #ec4899;
+  padding: 14px 32px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background: #fce7f3;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.3);
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
+}
+
+.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-card {
+    padding: 32px 24px;
+  }
+  
+  .form-title {
+    font-size: 32px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn-cancel,
+  .btn-submit {
+    width: 100%;
+  }
+}

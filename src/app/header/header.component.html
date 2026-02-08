@@ -1,0 +1,55 @@
+<nav class="glass-navbar navbar navbar-expand-lg">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" routerLink="/">
+      <span class="brand-icon">🌷</span>
+      <span class="brand-text">Campus Ideas</span>
+    </a>
+
+    <button
+      class="navbar-toggler custom-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <span class="nav-icon">🏠</span>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/suggestions" routerLinkActive="active">
+            <span class="nav-icon">💡</span>
+            <span>All Ideas</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link-special" routerLink="/suggestions/new">
+            <span>✨ New Idea</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link-role" routerLink="/login">
+            <span *ngIf="currentUser">👤 {{ currentUser.role }}</span>
+            <span *ngIf="!currentUser">🔒 Login</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,228 @@
+/* 🌸 Glassmorphism Navbar - FIXED */
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: none !important;
+  border-bottom: 1px solid rgba(236, 72, 153, 0.2) !important;
+  padding: 12px 0 !important;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(236, 72, 153, 0.12);
+}
+
+/* Remove default Bootstrap navbar background */
+.glass-navbar::before {
+  display: none;
+}
+
+/* Container padding */
+.glass-navbar .container-fluid {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Brand Styling */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  padding: 8px 0;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.brand-icon {
+  font-size: 32px;
+  filter: drop-shadow(0 2px 4px rgba(236, 72, 153, 0.3));
+}
+
+.brand-text {
+  font-size: 26px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+/* Navigation Items Container */
+.navbar-nav {
+  gap: 8px;
+  padding: 8px 0;
+}
+
+/* Regular Nav Links */
+.nav-link {
+  color: #9333ea !important;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 20px !important;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.nav-icon {
+  font-size: 18px;
+}
+
+.nav-link:hover {
+  background: rgba(236, 72, 153, 0.15);
+  transform: translateY(-2px);
+  color: #ec4899 !important;
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, rgba(252, 231, 243, 0.8) 0%, rgba(243, 232, 255, 0.8) 100%);
+  color: #ec4899 !important;
+  box-shadow: 0 2px 8px rgba(236, 72, 153, 0.2);
+}
+
+/* Special "New Idea" Button */
+.nav-link-special {
+  background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+  color: white !important;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+}
+
+.nav-link-special:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+/* Custom Hamburger Menu */
+.custom-toggler {
+  border: none;
+  padding: 8px;
+  background: transparent;
+  width: 44px;
+  height: 44px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.custom-toggler:hover {
+  background: rgba(236, 72, 153, 0.1);
+}
+
+.custom-toggler:focus {
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.2);
+  outline: none;
+}
+
+/* Hamburger Icon Lines */
+.custom-toggler span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  border-radius: 2px;
+  margin: 5px auto;
+  transition: all 0.3s ease;
+}
+
+/* Hide default Bootstrap toggler icon */
+.navbar-toggler-icon {
+  display: none;
+}
+
+
+.nav-link-role {
+  background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 100%);
+  color: #9333ea !important;
+  font-weight: 600;
+  padding: 10px 20px !important;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+}
+
+.nav-link-role:hover {
+  background: linear-gradient(135deg, #f9a8d4 0%, #e9d5ff 100%);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    margin-top: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(236, 72, 153, 0.2);
+    border: 1px solid rgba(236, 72, 153, 0.1);
+  }
+  
+  .navbar-nav {
+    gap: 12px;
+  }
+  
+  .nav-link {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 14px 20px !important;
+  }
+  
+  .nav-link-special {
+    width: 100%;
+    margin-top: 8px;
+    padding: 16px 28px;
+  }
+  
+  .brand-text {
+    font-size: 22px;
+  }
+  
+  .brand-icon {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-nav {
+    align-items: center;
+  }
+}
+
+/* Add some spacing for very small screens */
+@media (max-width: 576px) {
+  .glass-navbar .container-fluid {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .brand-text {
+    font-size: 20px;
+  }
+  
+  .brand-icon {
+    font-size: 24px;
+  }
+}

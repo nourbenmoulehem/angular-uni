@@ -1,0 +1,83 @@
+<div class="detail-container">
+  <div class="container py-5">
+    
+    <!-- Back Button -->
+    <button class="btn-back" (click)="goBack()">
+      <span class="arrow-back">←</span> Back to Ideas
+    </button>
+
+    <!-- Detail Card -->
+    <div class="detail-card" *ngIf="suggestion">
+      
+      <!-- Header -->
+      <div class="detail-header">
+        <div class="header-left">
+          <span class="category-badge">
+            {{getCategoryIcon(suggestion.category)}} {{suggestion.category}}
+          </span>
+          <span class="status-badge" [ngClass]="getStatusClass(suggestion.statut)">
+            {{suggestion.statut}}
+          </span>
+        </div>
+        <div class="header-actions">
+          <button class="btn-edit" (click)="onEdit()" *ngIf="canEdit">
+            ✏️ Edit
+          </button>
+          <button class="btn-delete" (click)="onDeleteClick()" *ngIf="canDelete">
+            🗑️ Delete
+          </button>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="detail-content">
+        <h1 class="detail-title">{{suggestion.title}}</h1>
+        <p class="detail-description">{{suggestion.description}}</p>
+      </div>
+
+      <!-- Footer -->
+      <div class="detail-footer">
+        <div class="footer-info">
+          <span class="info-icon">🗓️</span>
+          <span>Submitted on {{suggestion.date | date: 'MMMM d, yyyy'}}</span>
+        </div>
+        <div class="footer-info">
+          <span class="info-icon">🆔</span>
+          <span>ID: {{suggestion.id}}</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Not Found Message -->
+    <div class="not-found" *ngIf="!suggestion">
+      <div class="not-found-icon">🔍</div>
+      <h2>Suggestion Not Found</h2>
+      <p>The suggestion you're looking for doesn't exist.</p>
+      <button class="btn-primary" (click)="goBack()">
+        Go Back
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal-overlay" *ngIf="showDeleteModal" (click)="cancelDelete()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-icon">⚠️</div>
+    <h2 class="modal-title">Delete this idea?</h2>
+    <p class="modal-text">
+      Are you sure you want to delete "<strong>{{suggestion?.title}}</strong>"? 
+      This action cannot be undone.
+    </p>
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" (click)="cancelDelete()">
+        Cancel
+      </button>
+      <button class="btn-modal-delete" (click)="confirmDelete()">
+        Yes, Delete
+      </button>
+    </div>
+  </div>
+</div>

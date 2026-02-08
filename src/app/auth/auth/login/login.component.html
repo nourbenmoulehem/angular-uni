@@ -1,0 +1,41 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="login-title">🌷 Choose Your Role</h2>
+    <p class="login-subtitle">Select a role to test the application</p>
+
+    <div class="current-user" *ngIf="isLoggedIn">
+      <div class="user-badge">
+        <span class="user-icon">👤</span>
+        <div>
+          <div class="user-name">{{currentUser?.name}}</div>
+          <div class="user-role">{{currentUser?.role}}</div>
+        </div>
+      </div>
+      <button class="btn-logout" (click)="logout()">Logout</button>
+    </div>
+
+    <div class="roles-grid" *ngIf="!isLoggedIn">
+      <button class="role-card student" (click)="quickLogin('student')">
+        <div class="role-icon">🎓</div>
+        <h3>Student</h3>
+        <p>Can view and add suggestions</p>
+      </button>
+
+      <button class="role-card staff" (click)="quickLogin('staff')">
+        <div class="role-icon">👨‍🏫</div>
+        <h3>Staff</h3>
+        <p>Can approve/reject suggestions</p>
+      </button>
+
+      <button class="role-card admin" (click)="quickLogin('admin')">
+        <div class="role-icon">⚡</div>
+        <h3>Admin</h3>
+        <p>Full access + delete</p>
+      </button>
+    </div>
+
+    <div class="login-note">
+      <strong>💡 Note:</strong> This is a demo. In production, you'd use real authentication!
+    </div>
+  </div>
+</div>
