@@ -230,6 +230,135 @@
   cursor: not-allowed;
 }
 
+
+/* 📊 Status Section - Staff/Admin Only */
+.status-section {
+  background: linear-gradient(135deg, #fef3c7 0%, #fee2e2 10%, #fce7f3 50%, #e0e7ff 100%);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 32px;
+  border: 2px solid rgba(236, 72, 153, 0.2);
+}
+
+.status-badge-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.status-icon-large {
+  font-size: 48px;
+  background: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15);
+}
+
+.status-section-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.status-section-desc {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Status Options Grid */
+.status-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.status-option {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.status-content {
+  background: white;
+  border: 3px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-icon {
+  font-size: 40px;
+  display: block;
+}
+
+.status-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* Hover Effects */
+.status-option:hover .status-content {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.15);
+}
+
+/* Selected States */
+.status-option.selected .status-content {
+  border-width: 3px;
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25);
+}
+
+/* Pending Status */
+.status-option.pending.selected .status-content {
+  border-color: #fbbf24;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+}
+
+/* Approved Status */
+.status-option.approved.selected .status-content {
+  border-color: #22c55e;
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+}
+
+/* Rejected Status */
+.status-option.rejected.selected .status-content {
+  border-color: #ef4444;
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+}
+
+/* Form Divider */
+.form-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #f9a8d4 50%, transparent 100%);
+  margin: 32px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .status-badge-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .status-options {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .form-card {

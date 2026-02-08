@@ -18,6 +18,42 @@
     <div class="form-card">
       <form [formGroup]="suggestionForm" (ngSubmit)="onSubmit()">
         
+        <!-- STATUS FIELD - Only visible for Staff/Admin in Edit Mode -->
+        <div class="form-group status-section" *ngIf="canEditStatus">
+          <div class="status-badge-info">
+            <div class="status-icon-large">📊</div>
+            <div>
+              <h4 class="status-section-title">Update Status</h4>
+              <p class="status-section-desc">Staff & Admin can approve or reject suggestions</p>
+            </div>
+          </div>
+          
+          <div class="status-options">
+            <label 
+              *ngFor="let status of statuses" 
+              class="status-option"
+              [class.selected]="suggestionForm.get('statut')?.value === status"
+              [class.pending]="status === 'En attente'"
+              [class.approved]="status === 'Validée'"
+              [class.rejected]="status === 'Rejetée'"
+            >
+              <input 
+                type="radio" 
+                formControlName="statut" 
+                [value]="status"
+                hidden
+              />
+              <div class="status-content">
+                <span class="status-icon">{{ getStatusIcon(status) }}</span>
+                <span class="status-name">{{ status }}</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Divider if status section is shown -->
+        <hr class="form-divider" *ngIf="canEditStatus">
+
         <!-- Title Field -->
         <div class="form-group">
           <label class="form-label">
