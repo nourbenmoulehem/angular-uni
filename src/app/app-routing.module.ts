@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '', pathMatch: 'full' }, // Redirection de la racine vers HomeComponent
   { path: 'suggestions', component: SuggestionsListComponent },
   { path: 'suggestions/new', component: SuggestionFormComponent },
   { path: 'suggestions/:id', component: SuggestionDetailComponent },
