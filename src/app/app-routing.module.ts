@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'suggestions/new', component: SuggestionFormComponent },
   { path: 'suggestions/:id', component: SuggestionDetailComponent },
   { path: 'suggestions/:id/edit', component: SuggestionFormComponent },
+  { path: 'events', loadChildren: () => import('./features/events/events.module').then(m => m.EventsModule) },
   { path: '**', component: NotFoundComponent  } // 404 redirect to home
 ];
 
