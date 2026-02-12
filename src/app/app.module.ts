@@ -11,6 +11,7 @@ import { SuggestionDetailComponent } from './suggestions/suggestion-detail/sugge
 import { SuggestionFormComponent } from './suggestions/suggestion-form/suggestion-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/auth/login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoginComponent } from './auth/auth/login/login.component';
     SuggestionsListComponent,
     SuggestionDetailComponent,
     SuggestionFormComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

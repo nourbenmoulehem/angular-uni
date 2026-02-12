@@ -5,6 +5,7 @@ import { SuggestionsListComponent } from './suggestions/suggestions-list/suggest
 import { SuggestionDetailComponent } from './suggestions/suggestion-detail/suggestion-detail.component';
 import { SuggestionFormComponent } from './suggestions/suggestion-form/suggestion-form.component';
 import { LoginComponent } from './auth/auth/login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'suggestions/new', component: SuggestionFormComponent },
   { path: 'suggestions/:id', component: SuggestionDetailComponent },
   { path: 'suggestions/:id/edit', component: SuggestionFormComponent },
-  { path: '**', redirectTo: '' } // 404 redirect to home
+  { path: '**', component: NotFoundComponent  } // 404 redirect to home
 ];
 
 @NgModule({
